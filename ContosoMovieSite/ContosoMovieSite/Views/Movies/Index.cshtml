@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ContosoMovieSite.Models.Movie>
+﻿@model PagedList.IPagedList<ContosoMovieSite.Models.Movie>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -20,10 +21,10 @@
             @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm, currentFilter = ViewBag.CurrentFiler })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Director)
+            Director
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Genre)
+            Genre
         </th>
         <th>
             @Html.ActionLink("Year", "Index", new {sortOrder = ViewBag.YearSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -64,3 +65,8 @@
     }
 
 </table>
+<br/>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

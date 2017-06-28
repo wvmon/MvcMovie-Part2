@@ -69,3 +69,7 @@ C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\
 C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\obj\Debug\ContosoMovieSite.csprojResolveAssemblyReference.cache
 C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\obj\Debug\ContosoMovieSite.dll
 C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\obj\Debug\ContosoMovieSite.pdb
+C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\bin\PagedList.dll
+C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\bin\PagedList.Mvc.dll
+C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\bin\PagedList.xml
+C:\Users\williamv\Documents\Visual Studio 2017\Projects\Movies\ContosoMovieSite\ContosoMovieSite\bin\PagedList.Mvc.xml

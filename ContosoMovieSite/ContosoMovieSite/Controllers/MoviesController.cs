@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ContosoMovieSite.Models;
+using PagedList;
 
 namespace ContosoMovieSite.Controllers
 {
@@ -15,12 +16,19 @@ namespace ContosoMovieSite.Controllers
         private ContosoMovieEntities db = new ContosoMovieEntities();
 
         // GET: Movies
-        public ActionResult Index(string sortOrder, string searchItem)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchItem, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewBag.YearSortParm = sortOrder == "Year" ? "year_desc" : "Year";
-
+            if (searchItem != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchItem = currentFilter;
+            }
             var movies = from s in db.Movies
                 select s;
             if (!String.IsNullOrEmpty(searchItem))
@@ -43,7 +51,9 @@ namespace ContosoMovieSite.Controllers
                     movies = movies.OrderBy(s => s.Director);
                     break;
             }
-            return View(movies);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(movies.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Movies/Details/5
